@@ -63,6 +63,9 @@ function App() {
           <Route path='/AllMedia' element={
             <AllMedia />
           }/>
+          <Route path="*" element={
+          <h3>Page Not Found</h3>
+        }/>
         </Routes>
       </main>
     </>

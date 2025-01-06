@@ -8,9 +8,9 @@ footer sticking at the bottom: https://www.freecodecamp.org/news/how-to-keep-you
 
 /* colors */
 :root{
-  --Main: #12BAA7;
+  --Main: #0bac99;
   --Dark: #071702;
-  --Light: #D9F2EF;
+  --Light: #d9f2f0;
   --Accents: #F1CF0E;
   --gray: #666666;
 }
@@ -35,17 +35,38 @@ body{
 }
 
 .marginTop{
-  margin-top: 18px;
+  margin-top: 5px;
+}
+
+.marginBottom{
+  margin-bottom: 15px;
+}
+
+
+.marginRight{
+  margin-right: 5px;
 }
 
 .roundCorner{
   border-radius: 20px;
 }
 
+.bold{
+  font-weight: 800;
+}
+
 .flex, svg{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.flexColumn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 
 .flexSpaceAround{
@@ -66,14 +87,27 @@ h1{
   font-weight: 400;
   font-style: normal;
   margin: 0;
+  color: var(--Main);
 }
 
-h2, h3, p{
+h2, h3, p, a, label, input{
   font-family: "Comfortaa", serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
   margin: 0;
+}
+
+p, a{
+  font-size: 12px;
+}
+
+a{
+  text-decoration: none;
+}
+
+.main{
+  color: var(--Main);
 }
 
 .callToAction{
@@ -91,11 +125,65 @@ nav{
   bottom: 0;
 }
 
+button{
+  background-color: var(--Main);
+  border: none;
+  border-radius: 50px;
+  padding: 10px;
+  font-family: "Laila", serif;
+  font-weight: 800;
+  font-size: large;
+  font-style: normal;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+}
+
+label{
+  color: var(--Main);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+input{
+  border: none;
+  background-color: var(--Light);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+input:active{
+  border: none;
+}
+
 /* classes */
 .icons{
   width: 40px;
   height: 40px;
   margin: 0 20px;
+}
+
+.input{
+  background-color: var(--Light);
+  padding: 15px;
+  margin: 5px 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 350px;
+}
+
+.bottom{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 18px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
 
 /* ids */
@@ -106,4 +194,14 @@ nav{
 
 #plus{
   margin:0 25px;
+}
+
+#signIn{
+  width: 50%;
+  max-width: 250px;
+}
+
+#logo{
+  width: 50%;
+  max-width: 200px;
 }
