@@ -42,7 +42,6 @@ body{
   margin-bottom: 15px;
 }
 
-
 .marginRight{
   margin-right: 5px;
 }
@@ -159,11 +158,17 @@ input:active{
 }
 
 /* classes */
-.icons{
+.footerIcons{
   width: 40px;
   height: 40px;
   margin: 0 20px;
 }
+
+.icons{
+  width: 40px;
+  height: 40px;
+}
+
 
 .input{
   background-color: var(--Light);
@@ -204,4 +209,14 @@ input:active{
 #logo{
   width: 50%;
   max-width: 200px;
+}
+
+/* test classes and ids */
+.calendarSub{
+  width: 40vh;
+  height: 40vh;
+  max-width: 350px;
+  max-height: 350px;
+  background-color: var(--Main);
+  text-align: center;
 }
