@@ -1,8 +1,12 @@
 const ProfileForm = () =>{
   return(
-    <div>
-      <h2>edit profile</h2>
-    </div>
+    <>
+      <div className='container'>
+        <div className='contentWrap'>
+          <h2>edit profile</h2>
+        </div>
+      </div>
+    </>
   )
 }
 

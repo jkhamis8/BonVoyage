@@ -1,8 +1,12 @@
 const SignIn = () =>{
   return(
-    <div>
-      <h2>SignIn</h2>
-    </div>
+    <>
+      <div className='container'>
+        <div className='contentWrap'>
+          <h2>SignIn</h2>
+        </div>
+      </div>
+    </>
   )
 }
 

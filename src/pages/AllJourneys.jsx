@@ -1,8 +1,15 @@
+import Nav from '../components/Nav'
+
 const AllJourneys = () =>{
   return(
-    <div>
-      <h2>view all journeys</h2>
-    </div>
+    <>
+      <div className='container'>
+        <div className='contentWrap'>
+          <h2>view all journeys</h2>
+        </div>
+        <Nav />
+      </div>
+    </>
   )
 }
 

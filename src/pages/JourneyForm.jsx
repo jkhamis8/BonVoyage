@@ -1,8 +1,12 @@
 const JourneyForm = () =>{
   return(
-    <div>
-      <h2>add or edit journey</h2>
-    </div>
+    <>
+      <div className='container'>
+        <div className='contentWrap'>
+          <h2>add or edit journey</h2>
+        </div>
+      </div>
+    </>
   )
 }
 

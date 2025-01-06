@@ -1,8 +1,12 @@
 const EntryForm = () =>{
   return(
-    <div>
-      <h2>add or edit an entry</h2>
-    </div>
+    <>
+      <div className='container'>
+        <div className='contentWrap'>
+          <h2>add or edit an entry</h2>
+        </div>
+      </div>
+    </>
   )
 }
 
