@@ -13,6 +13,7 @@ import AllEntries from "./pages/AllEntries"
 import EntryForm from "./pages/EntryForm"
 import Entry from "./pages/Entry"
 import AllMedia from "./pages/AllMedia"
+import TestPage from "./pages/TestPage"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -62,6 +63,9 @@ function App() {
           }/>
           <Route path='/AllMedia' element={
             <AllMedia />
+          }/>
+          <Route path='/testPage' element={
+            <TestPage />
           }/>
           <Route path="*" element={
           <h3>Page Not Found</h3>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../components/Logo'
 
 const initialFormData = {
@@ -8,7 +8,6 @@ const initialFormData = {
 }
 
 const SignIn = () =>{
-  const [message, getMessage] = useState('');
   const [formData, setFormData] = useState(initialFormData)
   const navigate = useNavigate()
 
@@ -19,6 +18,7 @@ const SignIn = () =>{
   const handleSubmit = async(e)=>{
     e.preventDefault();
     try {
+      // sign in logic
       setFormData(initialFormData)
       navigate('/')
     } catch (error) {
@@ -45,7 +45,7 @@ const SignIn = () =>{
           </form>
         </div>
         <div className='bottom'>
-          <p className='marginRight'>don't have an account?</p><a href="/signup" className='bold main'>signup</a>
+          <p className='marginRight'>don't have an account?</p><a href="/signup" className='bold main'>sign up</a>
         </div>
       </div>
     </>
