@@ -6,7 +6,11 @@ function App() {
 
   return (
     <>
-      <h1>BonVoyage</h1>
+      <h1>BON VOYAGE</h1>
+      <h2>Your Travel Journal App</h2>
+      <h3>Username Or Email</h3>
+      <p>username_example</p>
+      <h3 className='callToAction'>Sign in</h3>
     </>
   )
 }
