@@ -286,6 +286,10 @@ input:active{
   height: 100px;
 }
 
+#spaceBig{
+  height: 150px;
+}
+
 #settings{
   display: flex;
   justify-content: end;
@@ -296,6 +300,36 @@ input:active{
   max-width: 200px;
   position: absolute;
   bottom: 70px;
+}
+
+#save{
+  width: 100px;
+}
+
+#cancel{
+  width: 100px;
+  background-color: var(--Light);
+  text-align: center;
+  border-radius: 50px;
+  padding: 10px;
+  font-family: "Laila", serif;
+  font-weight: 800;
+  font-size: large;
+  font-style: normal;
+  color: var(--Main);
+  border: 1px solid var(--Main);
+}
+
+#gallery{
+  padding: 20px 0;
+  background-color: var(--Light);
+}
+
+#media{
+  width: 50%;
+  height: 25vh;
+  margin: 0 5px 20px;
+  background-color: var(--Dark);
 }
 
 /* test classes and ids */

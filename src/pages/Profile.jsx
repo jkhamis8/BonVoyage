@@ -1,15 +1,13 @@
 import { NavLink } from "react-router-dom"
 import Nav from '../components/Nav'
-import profile from '../assets/profilePicture.svg'
 import Details from '../components/Details'
+import ProfileHeader from "../components/ProfileHeader"
 
 const Profile = () =>{
   return(
     <>
       <div className='container'>
-        <div id='profileHeader' className='flex'>
-          <img src={profile} alt="profile picture" id='profilePicture'/>
-        </div>
+        <ProfileHeader />
         <div className='contentWrap'>
           <div id='space'></div>
           <div className='flexRight'>
