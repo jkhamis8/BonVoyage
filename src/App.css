@@ -101,6 +101,10 @@ p, a{
   font-size: 12px;
 }
 
+.bigP{
+  font-size: 14px;
+}
+
 a{
   text-decoration: none;
 }
@@ -124,7 +128,7 @@ nav{
   bottom: 0;
 }
 
-button{
+button, .button{
   background-color: var(--Main);
   border: none;
   border-radius: 50px;
@@ -133,6 +137,10 @@ button{
   font-weight: 800;
   font-size: large;
   font-style: normal;
+}
+
+.button{
+  color: var(--Dark);
 }
 
 form{
@@ -169,7 +177,6 @@ input:active{
   height: 40px;
 }
 
-
 .input{
   background-color: var(--Light);
   padding: 15px;
@@ -189,6 +196,23 @@ input:active{
   display: flex;
   text-align: center;
   justify-content: center;
+}
+
+.image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.objectFooter{
+  height: 30%;
+  width: 100%;
+  background-color: var(--Light);
+  position: absolute;
+  bottom: 0;
+  opacity: 80%;
+  text-align: left;
+  padding: 10px;
 }
 
 /* ids */
@@ -211,8 +235,27 @@ input:active{
   max-width: 200px;
 }
 
+#home{
+  width: 40vh;
+  height: 40vh;
+  max-width: 350px;
+  max-height: 350px;
+  border-radius: 20px;
+  background-color: var(--Light);
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+#homeButton{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
 /* test classes and ids */
-.calendarSub{
+#calendarSub{
   width: 40vh;
   height: 40vh;
   max-width: 350px;
