@@ -7,8 +7,8 @@ const Home = () =>{
   return(
     <>
       <div className='container'>
+        <ProfileSearch />
         <div className='contentWrap'>
-          <ProfileSearch />
           <div className='flex marginBottom'>
             <div id='calendarSub'>imagine this is a calendar</div>
           </div>
