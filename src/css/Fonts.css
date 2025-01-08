@@ -1,0 +1,41 @@
+h1{
+  font-family: "Finger Paint", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  color: var(--Main);
+}
+
+h2, h3, p, a, label, input{
+  font-family: "Comfortaa", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+}
+
+p, a{
+  font-size: 12px;
+}
+
+.bigP{
+  font-size: 14px;
+}
+
+.bold{
+  font-weight: 800;
+}
+
+a{
+  text-decoration: none;
+}
+
+.main{
+  color: var(--Main);
+}
+
+.callToAction{
+  font-family: "Laila", serif;
+  font-weight: 800;
+  font-style: normal;
+}

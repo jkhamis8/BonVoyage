@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&display=swap');
+
+/* references:
+footer sticking at the bottom: https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/
+images https://www.w3schools.com/css/css3_object-fit.asp
+https://yoksel.github.io/grid-cheatsheet/
+https://www.sitepoint.com/css-grid-center-element/#:~:text=CSS%20Grid%20provides%20five%20effective,free%20to%20be%20positioned%20differently.
+*/
+
+/* colors */
+:root{
+  --Main: #0bac99;
+  --Dark: #071702;
+  --Light: #d9f2f0;
+  --Accents: #F1CF0E;
+  --gray: #666666;
+}
+
+/* ids */
+#list{
+  background-color: var(--Main);
+  border-radius: 50%;
+}
+
+#plus{
+  margin:0 25px;
+}
+
+#signIn{
+  width: 50%;
+  max-width: 250px;
+}
+
+#logo{
+  width: 50%;
+  max-width: 200px;
+}
+
+#home, #journeyBox{
+  max-width: 350px;
+  max-height: 350px;
+  border-radius: 20px;
+  background-color: var(--Light);
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+#home{
+  width: 40vh;
+  height: 40vh;
+}
+
+#journeyBox{
+  width: 23vh;
+  height: 23vh;
+  place-self: center;
+}
+
+#homeButton{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2;
+}
+
+#profileHeader{
+  width: 100%;
+  height: 100px;
+  background-color: var(--Main);
+}
+
+#profilePicture{
+  position: absolute;
+  top: 50px;
+}
+
+#space{
+  height: 100px;
+}
+
+#spaceBig{
+  height: 150px;
+}
+
+#settings{
+  display: flex;
+  justify-content: end;
+}
+
+#signOut{
+  width: 100%;
+  max-width: 200px;
+  position: absolute;
+  bottom: 70px;
+}
+
+#save{
+  width: 100px;
+}
+
+#cancel{
+  width: 100px;
+  background-color: var(--Light);
+  text-align: center;
+  border-radius: 50px;
+  padding: 10px;
+  font-family: "Laila", serif;
+  font-weight: 800;
+  font-size: large;
+  font-style: normal;
+  color: var(--Main);
+  border: 1px solid var(--Main);
+}
+
+#gallery{
+  padding: 20px 0;
+  background-color: var(--Light);
+  margin-bottom: 20px;
+}
+
+#media{
+  width: 50%;
+  height: 20vh;
+  margin: 0 5px 20px;
+  background-color: var(--Dark);
+}
+
+#profileSearch{
+  margin: 0 20px 15px;
+}
+
+/* test classes and ids */
+#calendarSub{
+  width: 40vh;
+  height: 40vh;
+  max-width: 350px;
+  max-height: 350px;
+  background-color: var(--Main);
+  text-align: center;
+}
