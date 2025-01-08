@@ -132,6 +132,30 @@ https://www.sitepoint.com/css-grid-center-element/#:~:text=CSS%20Grid%20provides
   margin: 0 20px 15px;
 }
 
+#addJourney{
+  width: 100%;
+  background-color: var(--Light);
+  border-radius: 0 0 20px 20px;
+  padding: 18px;
+}
+
+#Notes{
+  min-height: 100px;
+}
+
+#addActivities{
+  position: relative;
+}
+
+#AddActivitiesButton{
+  border-radius: 50%;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+}
+
 /* test classes and ids */
 #calendarSub{
   width: 40vh;

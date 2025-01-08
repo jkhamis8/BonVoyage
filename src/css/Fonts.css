@@ -39,3 +39,24 @@ a{
   font-weight: 800;
   font-style: normal;
 }
+
+.headerInput input{
+  text-align: end;
+  font-size: 15px;
+}
+
+#titleLabel, #otherLabel{
+  text-align: end;
+  color: var(--Dark);
+  margin-bottom: 10px;
+}
+
+#titleLabel{
+  font-size: 21px;
+  font-weight: 800;
+}
+
+#otherLabel{
+  font-size: 16px;
+  font-weight: 800;
+}
