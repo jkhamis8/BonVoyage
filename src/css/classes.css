@@ -55,6 +55,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position:top ;
 }
 
 .objectFooter, .objectFooterSmall{
@@ -81,4 +82,43 @@
   padding-bottom: 20px;
   margin-bottom: 30px;
   border-bottom: solid 1px var(--Dark);
+}
+
+.readOnly, .readOnlyRight, .readOnlyLeft, .readOnlyRightLong, .readOnlyLeftShort{
+  height: 60px;
+  background-color: var(--Light);
+  border-radius: 20px;
+  text-align: center;
+}
+
+.readOnly, .readOnlyBig{
+  width: 100%;
+  margin-top: 15px;
+}
+
+.readOnlyBig{
+  padding: 20px;
+  background-color: var(--Light);
+  border-radius: 20px;
+  text-align:start;
+}
+
+.readOnlyRight{
+  width: 50%;
+  margin: 15px 5px 0 0;
+}
+
+.readOnlyLeft{
+  width: 50%;
+  margin-top: 15px;
+}
+
+.readOnlyRightLong{
+  width: 75%;
+  margin: 15px 5px 0 0;
+}
+
+.readOnlyLeftShort{
+  width: 25%;
+  margin: 15px 5px 0 0;
 }
