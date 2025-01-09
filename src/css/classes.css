@@ -122,3 +122,16 @@
   width: 25%;
   margin: 15px 5px 0 0;
 }
+
+.fullHeight{
+  min-height: 100vh;
+  padding-bottom: 20px;
+}
+
+.middle{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}

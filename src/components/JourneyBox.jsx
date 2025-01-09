@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom"
 import placeholder from '../assets/placeholder.webp'
 
-const JourneyBox = ({id, place})=>{
+const JourneyBox = ({id, place, title})=>{
   return(
     <>
-      <NavLink to={`/journey/${id}`}>
+      {place?
+      <NavLink to={`/journey/${id}`} className={'flex'}>
         <div id='journeyBox' className='marginBottom'>
           <div className='objectFooterSmall'>
             <p className='bigP bold'>your journey to {place}</p>
@@ -12,6 +13,16 @@ const JourneyBox = ({id, place})=>{
           <img className='image' src={placeholder} alt="test" />
         </div>
       </NavLink>
+      :
+      <NavLink to={`/entry/${id}`} className={'flex'}>
+        <div id='journeyBox' className='marginBottom'>
+          <div className='objectFooterSmall'>
+            <p className='bigP bold'>{title}</p>
+          </div>
+          <img className='image' src={placeholder} alt="test" />
+        </div>
+      </NavLink>
+      }
     </>
   )
 }

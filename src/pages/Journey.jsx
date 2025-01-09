@@ -72,7 +72,7 @@ const Journey= () =>{
               </div>
               <div className="flexSpaceInBetween">
                 <button id="cancel">Delete</button>
-                <NavLink to={'/EntryForm'} className='button'>Add a journey</NavLink>
+                <NavLink to={'/EntryForm'} className='button'>Add an entry</NavLink>
               </div>
             </div>
           </div>
