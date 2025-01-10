@@ -39,6 +39,10 @@ body{
   margin-left: 5px;
 }
 
+.marginLeftBig{
+  margin-left: 15px;
+}
+
 /* flex */
 .flex, svg{
   display: flex;

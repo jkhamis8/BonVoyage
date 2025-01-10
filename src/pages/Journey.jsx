@@ -21,7 +21,7 @@ const Journey= () =>{
                   </g>
                 </svg>
               </NavLink>
-              <NavLink to={'/JourneyForm'}>
+              <NavLink to={'/JourneyForm/:id'}>
                 <svg className="icons" viewBox="-6 -4.5 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" strokeWidth="0" />
                   <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" stroke="#CCCCCC" strokeWidth="0.144" />
