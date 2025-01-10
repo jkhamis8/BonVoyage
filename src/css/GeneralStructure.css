@@ -14,7 +14,7 @@ body{
 
 .contentWrap {
   margin: 0 18px;
-  padding-bottom: 5rem;
+  padding-bottom: 20px;
 }
 
 .maxWidth{
@@ -37,6 +37,10 @@ body{
 
 .marginLeft{
   margin-left: 5px;
+}
+
+.marginLeftBig{
+  margin-left: 15px;
 }
 
 /* flex */
@@ -81,4 +85,8 @@ body{
 /* values */
 .roundCorner{
   border-radius: 20px;
+}
+
+.paddingBottom{
+  padding-bottom: 100px;
 }

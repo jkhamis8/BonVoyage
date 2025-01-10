@@ -47,15 +47,15 @@ const JourneyForm = () =>{
               </div>
               <div className='headerInput flexSpaceInBetween'>
                 <label htmlFor="destination" id="otherLabel">Destination:</label>
-                <input type="text" id='destination' placeholder='ex. america' value={formData.destination} name='destination' onChange={handleChange}/>
+                <input type="text" id='destination' value={formData.destination} name='destination' onChange={handleChange}/>
               </div>
               <div className='headerInput flexSpaceInBetween'>
                 <label htmlFor="startDate" id="otherLabel">Start Date:</label>
-                <input type="date" id='startDate' placeholder='ex. america' value={formData.destination} name='startDate' onChange={handleChange}/>
+                <input type="date" id='startDate' value={formData.startDate} name='startDate' onChange={handleChange}/>
               </div>
               <div className='headerInput flexSpaceInBetween'>
                 <label htmlFor="endDate" id="otherLabel">end Date:</label>
-                <input type="date" id='endDate' placeholder='ex. america' value={formData.destination} name='endDate' onChange={handleChange}/>
+                <input type="date" id='endDate' placeholder='ex. america' value={formData.endDate} name='endDate' onChange={handleChange}/>
               </div>
             </div>
             <div className="maxWidth flexSpaceAround">
@@ -81,7 +81,7 @@ const JourneyForm = () =>{
               <input type="text" id='googleMapsLink' placeholder="insert google maps link" value={formData.googleMapsLink} name='googleMapsLink' onChange={handleChange}/>
             </div>
             <div className='longInput'>
-              <label htmlFor="emergencyNumbers">Google maps link:</label>
+              <label htmlFor="emergencyNumbers">Emergency contact::</label>
               <input type="text" id='emergencyNumbers' placeholder="ex. 00000001 police" value={formData.emergencyNumbers} name='emergencyNumbers' onChange={handleChange}/>
             </div>
             <div className='longInput' id="addActivities">
