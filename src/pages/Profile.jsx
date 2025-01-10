@@ -4,6 +4,8 @@ import Details from '../components/Details'
 import ProfileHeader from "../components/ProfileHeader"
 
 const Profile = (props) =>{
+  console.log(props.user);
+  
   return(
     <>
       <div className='container'>

@@ -2,17 +2,50 @@ import { NavLink } from "react-router-dom"
 import Nav from '../components/Nav'
 import Cover from '../components/Cover'
 import DetailsTitle from '../components/DetailsTitle'
+import { useNavigate, useParams } from "react-router-dom"
+import * as journeyService from "./../services/journeyService"
+import { useState,useEffect } from "react"
 
 const Journey= () =>{
+  const {journeyId} = useParams();
+  const [formData, setFormData] = useState([])
+  const navigate=useNavigate()
+
+  const getJourney = async() =>{
+    if(journeyId){
+      try {
+      const response=await journeyService.getJourney(journeyId)
+      response.JourneyObj.startDate = response.JourneyObj.startDate.split('T')[0]
+      response.JourneyObj.endDate = response.JourneyObj.endDate.split('T')[0]
+      setFormData(response.JourneyObj)
+      } catch (error) {
+      console.log(`error in useEffect: ${err}`)
+      }
+    }
+    }
+
+  useEffect(()=>{
+    getJourney()
+  },[])
+
+  const handleDeleteJourney = async(e)=>{
+    try {
+      await journeyService.deleteJourney(journeyId)
+      navigate('/allJourneys')
+    }
+    catch (error) {
+      console.log(`couldn't delete the journey, error in submit: ${error}`);
+    }
+    }
   return(
     <>
       <div className='container'>
         <Cover />
         <div className='contentWrap'>
           <div className='flexSpaceInBetween'>
-            <h3>Your journey to [place]</h3>
+            <h3>Your journey to {formData.destination}</h3>
             <div className='flex'>
-              <NavLink to={'/AllEntries/:id'}>
+              <NavLink to={`/AllEntries/${formData._id}`}>
                 <svg className="icons" fill="#000000" viewBox="-307.2 -307.2 1638.40 1638.40" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
                   <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/>
@@ -21,7 +54,7 @@ const Journey= () =>{
                   </g>
                 </svg>
               </NavLink>
-              <NavLink to={'/JourneyForm/:id'}>
+              <NavLink to={`/JourneyForm/${journeyId}`}>
                 <svg className="icons" viewBox="-6 -4.5 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" strokeWidth="0" />
                   <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" stroke="#CCCCCC" strokeWidth="0.144" />
@@ -32,46 +65,46 @@ const Journey= () =>{
               </NavLink>
             </div>
           </div>
-          <DetailsTitle title={'title given by user'}/>
+          <DetailsTitle title={formData.title}/>
           <div className='flex'>
             <div className='maxWidth'>
               <div className='flex'>
                 <div className='readOnlyRight flex'>
-                  <p className='bigP bold'>From [date]</p>
+                  <p className='bigP bold'>From {formData.startDate}</p>
                 </div>
                 <div className='readOnlyLeft flex'>
-                  <p className='bigP bold'>To [date]</p>
+                  <p className='bigP bold'>To {formData.endDate}</p>
                 </div>
               </div>
               <div className='flex'>
                 <div className='readOnlyRight flex'>
-                  <p className='bigP bold'>[budget] budget</p>
+                  <p className='bigP bold'>{formData.budget} budget</p>
                 </div>
                 <div className='readOnlyLeft flex'>
-                  <p className='bigP bold'>[expenses] expense</p>
+                  <p className='bigP bold'>{formData.budget} expense</p>
                 </div>
               </div>
               <div className='flex'>
                 <div className='readOnlyRightLong flex'>
-                  <a className='bigP bold' href="[google maps link]">[google maps link]</a>
+                  <a className='bigP bold' href="{formData.mapLink}">{formData.mapLink}</a>
                 </div>
                 <div className='readOnlyLeftShort flex'>
-                  <p className='bigP bold'>for [#]</p>
+                  <p className='bigP bold'>for {formData.people}</p>
                 </div>
               </div>
               <div className='readOnly flex'>
-                <p className='bigP bold'>[emergency number]</p>
+                <p className='bigP bold'>{formData.emergencyNumbers}</p>
               </div>
               <div className='readOnlyBig'>
                 <p className='bigP main bold'>Notes: </p>
-                <p className='bigP bold'>[notes]</p>
+                <p className='bigP bold'>{formData.notes}</p>
               </div>
               <div className='readOnlyBig marginBottom'>
                 <p className='bigP main bold'>Activities: </p>
-                <p className='bigP bold'>[Activities]</p>
+                <p className='bigP bold'>{formData.activities}</p>
               </div>
               <div className="flexSpaceInBetween">
-                <button id="cancel">Delete</button>
+                <button id="cancel" onClick={handleDeleteJourney}>Delete</button>
                 <NavLink to={'/EntryForm'} className='button'>Add an entry</NavLink>
               </div>
             </div>

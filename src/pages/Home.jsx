@@ -2,8 +2,28 @@ import { NavLink } from "react-router-dom"
 import Nav from '../components/Nav'
 import placeholder from '../assets/placeholder.webp'
 import ProfileSearch from "../components/ProfileSearch"
+import { useNavigate } from "react-router-dom"
+import * as journeyService from "./../services/journeyService"
+import { useState,useEffect } from "react"
 
-const Home = () =>{
+const Home = (props) =>{
+    const [journey, setJourney] = useState([])
+    const navigate=useNavigate()
+  
+    const getComingJourney = async() =>{
+        try {
+        const response = await journeyService.getComingJourney(props.user._id)        
+        setJourney(response.journeyObj[0])        
+        } catch (error) {
+        console.log(`error in useEffect: ${err}`)
+        }
+      }
+      
+  
+    useEffect(()=>{
+      getComingJourney()      
+    },[])
+  
   return(
     <>
       <div className='container'>
@@ -13,14 +33,17 @@ const Home = () =>{
             <div id='calendarSub'>imagine this is a calendar</div>
           </div>
           <div className='flex'>
-            <div id='home'>
-              <NavLink to='/journey/:id' className='button' id="homeButton">View</NavLink>
+              {journey?
+              <div id='home'>
+              <NavLink to={`/journey/${journey._id}`} className='button' id="homeButton">View</NavLink>
               <div className='objectFooter'>
-                <p className='bigP bold'>Get excited! your journey is planned for 20th of feb</p>
+                <p className='bigP bold'>Get excited! your journey is planned for {journey.destination}</p>
               </div>
               <img className='image' src={placeholder} alt="test" />
             </div>
-            {/* <p className="bigP bold">No journeys in the upcoming three months</p> */}
+              :
+            <p className="bigP bold">No journeys in the upcoming three months</p>
+            }
           </div>
         </div>
         <Nav />

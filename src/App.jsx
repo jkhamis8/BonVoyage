@@ -23,18 +23,13 @@ import * as journeyService from '../src/services/journeyService';
 
 function App() {
   const [user, setUser] = useState(authService.getUser());
-  const [journey, setJourney] = useState([])
-  const [count, setCount] = useState(0)
   const navigate = useNavigate()
   const handleSignout = () => {
     navigate('/')
     authService.signout()
     setUser(null)
     }
-  
-  useEffect(()=>{
-    setJourney(journeyService.getComingJourney())
-  },[])
+
   
   return (
     <>
@@ -42,7 +37,7 @@ function App() {
       {authService.getUser() !=null ? 
         <Routes>
           <Route path='/' element={
-            <Home />
+            <Home user={user} />
           } />
           <Route path='/profile' element={
             <Profile user={user} handleSignout={handleSignout}/>
@@ -51,15 +46,15 @@ function App() {
             <ProfileForm user={user} handleSignout={handleSignout}/>
           }/>
           <Route path='/allJourneys' element={
-            <AllJourneys />
+            <AllJourneys user={user}/>
           }/>
           <Route path='/JourneyForm' element={
+            <JourneyForm user={user}/>
+          }/>
+          <Route path='/JourneyForm/:journeyId' element={
             <JourneyForm />
           }/>
-          <Route path='/JourneyForm/:id' element={
-            <JourneyForm />
-          }/>
-          <Route path='/Journey/:id' element={
+          <Route path='/Journey/:journeyId' element={
             <Journey />
           }/>
           <Route path='/AllEntries/:id' element={

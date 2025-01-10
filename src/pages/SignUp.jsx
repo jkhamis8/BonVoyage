@@ -20,6 +20,10 @@ const SignUp = (props) =>{
 
   const handleSubmit = async (e)=>{
     e.preventDefault()
+    if(formData.confirmPassword!=formData.password){
+      console.log("Password confirm is diffrent");
+      return 0;
+    }
     try {
       const newUserResponse = await authService.signup(formData)
       props.setUser(newUserResponse.user);
@@ -28,13 +32,6 @@ const SignUp = (props) =>{
       console.log(error.message)
     }
   }
-
-    useEffect(()=>{
-      if(authService.getUser()){
-        navigate('/')
-      }
-    },[])
-  
     
   return(
     <>
@@ -62,7 +59,7 @@ const SignUp = (props) =>{
           </form>
         </div>
         <div className='bottom'>
-          <p className='marginRight'>already have an account?</p><a href="/signin" className='bold main'>sign in</a>
+          <p className='marginRight'>already have an account?</p><a href="/" className='bold main'>sign in</a>
         </div>
       </div>
     </>
