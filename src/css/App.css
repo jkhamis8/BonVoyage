@@ -125,7 +125,12 @@ https://www.sitepoint.com/css-grid-center-element/#:~:text=CSS%20Grid%20provides
   width: 50%;
   height: 20vh;
   margin: 0 5px 20px;
-  background-color: var(--Dark);
+}
+
+#mediaGrid{
+  width: 95%;
+  height: 20vh;
+  margin: 0 5px 20px;
 }
 
 #profileSearch{
