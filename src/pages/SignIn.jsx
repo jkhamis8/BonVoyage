@@ -1,13 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../components/Logo'
+import * as authService from "./../services/authService"
 
 const initialFormData = {
   username: '',
   password: ''
 }
 
-const SignIn = () =>{
+const SignIn = (props) =>{
   const [formData, setFormData] = useState(initialFormData)
   const navigate = useNavigate()
 
@@ -18,13 +19,19 @@ const SignIn = () =>{
   const handleSubmit = async(e)=>{
     e.preventDefault();
     try {
-      // sign in logic
-      setFormData(initialFormData)
+      const user = await authService.signin(formData)
+      props.setUser(user);
       navigate('/')
     } catch (error) {
       console.log(`error in singIn handleSubmit: ${error}`);
     }
   }
+
+  useEffect(()=>{
+    if(authService.getUser()){
+      navigate('/')
+    }
+  },[])
 
   return(
     <>

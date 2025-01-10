@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Logo from "../components/Logo"
+import * as authService from "./../services/authService"
 
 const initialFormData = {
   email: '',
@@ -9,7 +10,7 @@ const initialFormData = {
   confirmPassword:''
 }
 
-const SignUp = () =>{
+const SignUp = (props) =>{
   const [formData, setFormData] = useState(initialFormData)
   const navigate = useNavigate()
 
@@ -17,17 +18,24 @@ const SignUp = () =>{
     setFormData({...formData, [e.target.name]:e.target.value})
   }
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async (e)=>{
     e.preventDefault()
     try {
-      // sign up logic
-      setFormData(initialFormData)
-      navigate('/signin')
+      const newUserResponse = await authService.signup(formData)
+      props.setUser(newUserResponse.user);
+      navigate('/')
     } catch (error) {
-      console.log(`error in handle submit signing up: ${error}`);
+      console.log(error.message)
     }
   }
 
+    useEffect(()=>{
+      if(authService.getUser()){
+        navigate('/')
+      }
+    },[])
+  
+    
   return(
     <>
       <div className='container'>

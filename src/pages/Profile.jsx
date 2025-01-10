@@ -3,7 +3,7 @@ import Nav from '../components/Nav'
 import Details from '../components/Details'
 import ProfileHeader from "../components/ProfileHeader"
 
-const Profile = () =>{
+const Profile = (props) =>{
   return(
     <>
       <div className='container'>
@@ -25,12 +25,12 @@ const Profile = () =>{
             </NavLink>
 
           </div>
-          <Details name='Username' value='username_example'/>
-          <Details name='Email' value='testEmail@testEmail.com'/>
+          <Details name='Username' value={props.user.username}/>
+          <Details name='Email' value={props.user.email}/>
           <Details name='Password'/>
         </div>
         <div className="flex">
-          <button id="signOut">Sign out</button>
+          <button id="signOut" onClick={props.handleSignout}>Sign out</button>
         </div>
         <Nav />
       </div>

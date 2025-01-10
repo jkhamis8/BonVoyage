@@ -3,28 +3,23 @@ import { useNavigate } from "react-router-dom"
 import ProfileHeader from "../components/ProfileHeader"
 import Cancel from "../components/Cancel"
 import Save from "../components/Save"
+import * as authService from "./../services/authService"
 
-const initialFormData = {
-  username: '',
-  email: '',
-  password: '',
-  confirmPassword: ''
-}
+const ProfileForm = (props) =>{
+console.log(props.user);
 
-const ProfileForm = () =>{
-
-  const [formData, setFormData] = useState(initialFormData)
+  const [formData, setFormData] = useState(props.user)
   const navigate = useNavigate()
 
   const handleChange = (e) =>{
     setFormData({...formData, [e.target.name]:e.target.value})
   }
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault()
     try {
-      // edit profile logic
-      navigate('/profile')
+      await authService.editUserProfile(formData)
+      props.handleSignout()
     } catch (error) {
       console.log(`error in editing profile form handle submit: ${error}`);
     }
@@ -39,7 +34,7 @@ const ProfileForm = () =>{
           <form onSubmit={handleSubmit} className='flex'>
             <div className='input'>
               <label htmlFor="username">Username:</label>
-              <input type="text" id='username' placeholder='your username' value={formData.username} name='username' onChange={handleChange}/>
+              <input type="text" readOnly id='username' placeholder='your username' value={formData.username} name='username' onChange={handleChange}/>
             </div>
             <div className="input">
               <label htmlFor="email">Email:</label>

@@ -1,6 +1,6 @@
 import './App.css'
-import { useState } from 'react'
-import { Routes, Route } from "react-router-dom"
+import { useEffect, useState } from 'react'
+import { Routes, Route ,useNavigate} from "react-router-dom"
 import Home from "./pages/Home"
 import SignIn from "./pages/SignIn"
 import SignUp from "./pages/SignUp"
@@ -14,28 +14,37 @@ import EntryForm from "./pages/EntryForm"
 import Entry from "./pages/Entry"
 import AllMedia from "./pages/AllMedia"
 import TestPage from "./pages/TestPage"
+import * as authService from '../src/services/authService';
+import * as journeyService from '../src/services/journeyService';
 
 function App() {
+  const [user, setUser] = useState(authService.getUser());
+  const [journey, setJourney] = useState([])
   const [count, setCount] = useState(0)
-
+  const navigate = useNavigate()
+  const handleSignout = () => {
+    navigate('/')
+    authService.signout()
+    setUser(null)
+    }
+  
+  useEffect(()=>{
+    setJourney(journeyService.getComingJourney())
+  },[])
+  
   return (
     <>
       <main>
+      {authService.getUser() !=null ? 
         <Routes>
           <Route path='/' element={
             <Home />
           } />
-          <Route path='/signIn' element={
-            <SignIn />
-          }/>
-          <Route path='/signUp' element={
-            <SignUp />
-          }/>
           <Route path='/profile' element={
-            <Profile />
+            <Profile user={user} handleSignout={handleSignout}/>
           }/>
           <Route path='/editProfile' element={
-            <ProfileForm />
+            <ProfileForm user={user} handleSignout={handleSignout}/>
           }/>
           <Route path='/allJourneys' element={
             <AllJourneys />
@@ -71,6 +80,16 @@ function App() {
           <h3>Page Not Found</h3>
         }/>
         </Routes>
+        :
+        <Routes>
+        <Route path='/' element={
+            <SignIn setUser={setUser}/>
+          }/>
+          <Route path='/signUp' element={
+            <SignUp setUser={setUser}/>
+          }/>
+        </Routes>
+}
       </main>
     </>
   )
