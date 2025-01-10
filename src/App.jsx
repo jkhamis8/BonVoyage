@@ -1,4 +1,8 @@
-import './App.css'
+import './css/App.css'
+import './css/GeneralStructure.css'
+import './css/Fonts.css'
+import './css/Elements.css'
+import './css/classes.css'
 import { useEffect, useState } from 'react'
 import { Routes, Route ,useNavigate} from "react-router-dom"
 import Home from "./pages/Home"
