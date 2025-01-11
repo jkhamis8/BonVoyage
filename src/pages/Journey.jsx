@@ -14,7 +14,8 @@ const Journey= (props) =>{
   const getJourney = async() =>{
     if(journeyId){
       try {        
-      const response=await journeyService.getJourney(journeyId)      
+      const response=await journeyService.getJourney(journeyId)
+      const calculateResponse=await journeyService.getJourneyCalculate(journeyId)   
       if(response.JourneyObj.startDate!==undefined && response.JourneyObj.startDate!==null){
       response.JourneyObj.startDate = response.JourneyObj.startDate.split('T')[0]
       }

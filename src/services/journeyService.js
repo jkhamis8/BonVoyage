@@ -51,6 +51,24 @@ const getJourney =async (journeyId) => {
     throw err;
   }
 };
+
+const getJourneyCalculate =async (journeyId) => {
+  try {
+    const res = await fetch(`${BACKEND_URL}/journey/getJourneyCalculate/${journeyId}`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const json = await res.json();
+    if (json.err) {
+      throw new Error(json.err);
+    }
+    return json;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
+};
+
 const createJourney = async (formData) => {
   try {
     const res = await fetch(`${BACKEND_URL}/journey/createJourney`, {
@@ -102,4 +120,4 @@ const deleteJourney = async (journeyId) => {
     throw err;
   }
 };
-export { getComingJourney,getAllJourneys,getJourney,createJourney,editJourney,deleteJourney };
+export { getComingJourney,getAllJourneys,getJourney,getJourneyCalculate,createJourney,editJourney,deleteJourney };
