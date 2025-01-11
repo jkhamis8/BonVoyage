@@ -1,10 +1,10 @@
-const DetailsTitle = ({title})=>{
+const DetailsTitle = ({title,rate})=>{
   return(
     <>
       <div className='flexSpaceInBetween' id='detailsTitle' >
         <h3 className='main'>{title}</h3>
         <div className='flex main'>
-          0
+          {rate}
           <svg className='icons' viewBox="-12 -12 48.00 48.00" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
             <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/>

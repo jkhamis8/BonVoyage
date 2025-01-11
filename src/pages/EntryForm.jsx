@@ -9,7 +9,7 @@ const initialFormData = {
   location: '',
   expense: 0,
   content: '',
-  images: [''],
+  images: '',
   map_link: '' 
 }
 

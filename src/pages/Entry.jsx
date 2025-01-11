@@ -58,7 +58,7 @@ const Entry= () =>{
                   </svg>
             </NavLink>
           </div>
-          <DetailsTitle title={formData.title}/>
+          <DetailsTitle title={formData.title} rate={formData.rate}/>
           <div className="flex">
             <div className="maxWidth">
               <div className='flex'>

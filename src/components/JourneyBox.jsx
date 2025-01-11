@@ -11,7 +11,11 @@ const JourneyBox = (props)=>{
           <div className='objectFooterSmall'>
             <p className='bigP bold'>Your Journey to {props.journey.destination}</p>
           </div>
+          {props.journey.coverImage?
+          <img className='image' src={props.journey.coverImage} alt="test" />
+          :
           <img className='image' src={placeholder} alt="test" />
+          }
         </div>
       </NavLink>
       :
@@ -20,8 +24,11 @@ const JourneyBox = (props)=>{
           <div className='objectFooterSmall'>
             <p className='bigP bold'>{props.entry.title}</p>
           </div>
+          {props.entry.images?
+          <img className='image' src={props.entry.images} alt="test" />
+          :
           <img className='image' src={placeholder} alt="test" />
-        </div>
+          }        </div>
       </NavLink>
       }
     </>

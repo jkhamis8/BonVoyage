@@ -9,6 +9,7 @@ import { useState,useEffect } from "react"
 const Journey= (props) =>{
   const {journeyId} = useParams();
   const [formData, setFormData] = useState([])
+  const [calcluate, setCalcluate] = useState([])
   const navigate=useNavigate()
 
   const getJourney = async() =>{
@@ -16,6 +17,8 @@ const Journey= (props) =>{
       try {        
       const response=await journeyService.getJourney(journeyId)
       const calculateResponse=await journeyService.getJourneyCalculate(journeyId)   
+      setCalcluate(calculateResponse)
+
       if(response.JourneyObj.startDate!==undefined && response.JourneyObj.startDate!==null){
       response.JourneyObj.startDate = response.JourneyObj.startDate.split('T')[0]
       }
@@ -34,6 +37,7 @@ const Journey= (props) =>{
 
   useEffect(()=>{
     getJourney()
+    
   },[])
 
   const handleDeleteJourney = async(e)=>{
@@ -48,7 +52,7 @@ const Journey= (props) =>{
   return(
     <>
       <div className='container'>
-        <Cover />
+        <Cover image={formData.coverImage}/>
         <div className='contentWrap'>
           <div className='flexSpaceInBetween'>
             <h3>Your journey to {formData.destination}</h3>
@@ -73,7 +77,7 @@ const Journey= (props) =>{
               </NavLink>
             </div>
           </div>
-          <DetailsTitle title={formData.title}/>
+          <DetailsTitle title={formData.title} rate={calcluate.rate}/>
           <div className='flex'>
             <div className='maxWidth'>
               <div className='flex'>
@@ -89,7 +93,7 @@ const Journey= (props) =>{
                   <p className='bigP bold'>{formData.budget} budget</p>
                 </div>
                 <div className='readOnlyLeft flex'>
-                  <p className='bigP bold'>{formData.budget} expense</p>
+                  <p className='bigP bold'>{calcluate.expense} expense</p>
                 </div>
               </div>
               <div className='flex'>
