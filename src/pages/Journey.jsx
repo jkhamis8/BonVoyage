@@ -6,20 +6,27 @@ import { useNavigate, useParams } from "react-router-dom"
 import * as journeyService from "./../services/journeyService"
 import { useState,useEffect } from "react"
 
-const Journey= () =>{
+const Journey= (props) =>{
   const {journeyId} = useParams();
   const [formData, setFormData] = useState([])
   const navigate=useNavigate()
 
   const getJourney = async() =>{
     if(journeyId){
-      try {
-      const response=await journeyService.getJourney(journeyId)
+      try {        
+      const response=await journeyService.getJourney(journeyId)      
+      if(response.JourneyObj.startDate!==undefined && response.JourneyObj.startDate!==null){
       response.JourneyObj.startDate = response.JourneyObj.startDate.split('T')[0]
+      }
+
+      if(response.JourneyObj.endDate!==undefined && response.JourneyObj.endDate!==null){
       response.JourneyObj.endDate = response.JourneyObj.endDate.split('T')[0]
+      }
+
       setFormData(response.JourneyObj)
+      props.setJourney(response.JourneyObj)
       } catch (error) {
-      console.log(`error in useEffect: ${err}`)
+      console.log(`error in useEffect: ${error}`)
       }
     }
     }
@@ -45,7 +52,7 @@ const Journey= () =>{
           <div className='flexSpaceInBetween'>
             <h3>Your journey to {formData.destination}</h3>
             <div className='flex'>
-              <NavLink to={`/AllEntries/${formData._id}`}>
+              <NavLink to={`/AllEntries`}>
                 <svg className="icons" fill="#000000" viewBox="-307.2 -307.2 1638.40 1638.40" xmlns="http://www.w3.org/2000/svg">
                   <g id="SVGRepo_bgCarrier" strokeWidth="0"/>
                   <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"/>

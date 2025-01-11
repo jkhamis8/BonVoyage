@@ -1,15 +1,11 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom"
 import ProfileHeader from "../components/ProfileHeader"
 import Cancel from "../components/Cancel"
 import Save from "../components/Save"
 import * as authService from "./../services/authService"
 
 const ProfileForm = (props) =>{
-console.log(props.user);
-
   const [formData, setFormData] = useState(props.user)
-  const navigate = useNavigate()
 
   const handleChange = (e) =>{
     setFormData({...formData, [e.target.name]:e.target.value})

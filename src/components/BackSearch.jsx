@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom"
 
-const BackSearch = ()=>{
+const BackSearch = (props)=>{  
   return(
     <>
       <div className='flexSpaceInBetween' id="profileSearch">
-        <NavLink to='/journey/:id'>
+        <NavLink to={`/journey/${props.journey._id}`}>
         <svg width="23" height="23" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M18.4761 1.52404L2.00012 18L18.4761 34.476" stroke="black" stroke-width="2.85714" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>

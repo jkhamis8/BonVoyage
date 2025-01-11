@@ -3,9 +3,7 @@ import Nav from '../components/Nav'
 import Details from '../components/Details'
 import ProfileHeader from "../components/ProfileHeader"
 
-const Profile = (props) =>{
-  console.log(props.user);
-  
+const Profile = (props) =>{  
   return(
     <>
       <div className='container'>

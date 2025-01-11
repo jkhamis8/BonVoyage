@@ -15,7 +15,7 @@ const JourneyBox = (props)=>{
         </div>
       </NavLink>
       :
-      <NavLink to={`/entry/${props.entry.destination}`} className={'flex'}>
+      <NavLink to={`/Entry/${props.entry._id}`} className={'flex'}>
         <div id='journeyBox' className='marginBottom'>
           <div className='objectFooterSmall'>
             <p className='bigP bold'>{props.entry.title}</p>

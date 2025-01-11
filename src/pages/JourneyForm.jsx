@@ -27,11 +27,17 @@ const JourneyForm = (props) =>{
     if(journeyId){
       try {
       const response=await journeyService.getJourney(journeyId)
-      response.JourneyObj.startDate = response.JourneyObj.startDate.split('T')[0]
-      response.JourneyObj.endDate = response.JourneyObj.endDate.split('T')[0]
+      if(response.JourneyObj.startDate!==undefined && response.JourneyObj.startDate!==null){
+        response.JourneyObj.startDate = response.JourneyObj.startDate.split('T')[0]
+        }
+  
+        if(response.JourneyObj.endDate!==undefined && response.JourneyObj.endDate!==null){
+        response.JourneyObj.endDate = response.JourneyObj.endDate.split('T')[0]
+        }
+  
       setFormData(response.JourneyObj)
       } catch (error) {
-      console.log(`error in useEffect: ${err}`)
+      console.log(`error in useEffect: ${error}`)
       }
     }
     }
@@ -41,17 +47,15 @@ const JourneyForm = (props) =>{
   },[])
 
   const handleChange = (e)=>{
-    console.log(formData);
-
     setFormData({...formData, [e.target.name]:e.target.value})
   }
 
-  const handleSubmit =  async(e)=>{
+  const handleSubmit = async(e)=>{
     e.preventDefault()
     if(journeyId){
       try {
         await journeyService.editJourney(formData)
-        navigate('/allJourneys')
+        navigate(`/journey/${journeyId}`)
       } catch (error) {
         console.log(`couldn't edit the journey, error in submit: ${error}`);
       }

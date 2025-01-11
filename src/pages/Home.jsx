@@ -15,7 +15,7 @@ const Home = (props) =>{
         const response = await journeyService.getComingJourney(props.user._id)        
         setJourney(response.journeyObj[0])        
         } catch (error) {
-        console.log(`error in useEffect: ${err}`)
+        console.log(`error in useEffect: ${error}`)
         }
       }
       

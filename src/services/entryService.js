@@ -1,25 +1,8 @@
 const BACKEND_URL = import.meta.env.VITE_EXPRESS_BACKEND_URL;
 
-const getComingJourney = async (userID) => {
+const getAllEntrys = async (journeyID) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/journey/getComingJourney/${userID}`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' },
-    });
-    const json = await res.json();
-    if (json.err) {
-      throw new Error(json.err);
-    }
-    return json;
-  } catch (err) {
-    console.log(err);
-    throw err;
-  }
-};
-
-const getAllJourneys = async (userID) => {
-  try {
-    const res = await fetch(`${BACKEND_URL}/journey/getAllJourneys/${userID}`, {
+    const res = await fetch(`${BACKEND_URL}/entry/getAllEntrys/${journeyID}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     });
@@ -35,9 +18,9 @@ const getAllJourneys = async (userID) => {
 };
 
 
-const getJourney =async (journeyId) => {
+const getEntry =async (entryId) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/journey/getJourney/${journeyId}`, {
+    const res = await fetch(`${BACKEND_URL}/entry/getEntry/${entryId}`, {
       method: 'GET',
       headers: { 'Content-Type': 'application/json' },
     });
@@ -51,9 +34,9 @@ const getJourney =async (journeyId) => {
     throw err;
   }
 };
-const createJourney = async (formData) => {
+const createEntry = async (formData) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/journey/createJourney`, {
+    const res = await fetch(`${BACKEND_URL}/entry/createEntry`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
@@ -68,9 +51,9 @@ const createJourney = async (formData) => {
     throw err;
   }
 };
-const editJourney = async (formData) => {
+const editEntry = async (formData) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/journey/editJourney`, {
+    const res = await fetch(`${BACKEND_URL}/entry/editEntry`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
@@ -86,9 +69,9 @@ const editJourney = async (formData) => {
   }
 };
 
-const deleteJourney = async (journeyId) => {
+const deleteEntry = async (journeyId) => {
   try {
-    const res = await fetch(`${BACKEND_URL}/journey/deleteJourney/${journeyId}`, {
+    const res = await fetch(`${BACKEND_URL}/entry/deleteEntry/${journeyId}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
     });
@@ -102,4 +85,4 @@ const deleteJourney = async (journeyId) => {
     throw err;
   }
 };
-export { getComingJourney,getAllJourneys,getJourney,createJourney,editJourney,deleteJourney };
+export { getAllEntrys,getEntry,createEntry,editEntry,deleteEntry };

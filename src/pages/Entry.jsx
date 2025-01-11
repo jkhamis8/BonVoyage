@@ -3,16 +3,52 @@ import Nav from '../components/Nav'
 import Cover from '../components/Cover'
 import DetailsTitle from '../components/DetailsTitle'
 import Gallery from "../components/Gallery"
+import { useNavigate, useParams } from "react-router-dom"
+import * as entryService from "./../services/entryService"
+import { useState,useEffect } from "react"
 
-const Entry = () =>{
+const Entry= () =>{
+
+  const {entryId} = useParams();
+  const [formData, setFormData] = useState([])
+  const navigate=useNavigate()
+
+  const getEntry = async() =>{
+    if(entryId){
+      try {
+      const response=await entryService.getEntry(entryId)
+      if(response.entryObj.date!==undefined && response.entryObj.date!==null){
+        response.entryObj.date = response.entryObj.date.split('T')[0]
+      }
+      setFormData(response.entryObj)
+      } catch (error) {
+      console.log(`error in useEffect: ${error}`)
+      }
+    }
+    }
+
+  useEffect(()=>{
+    getEntry()
+  },[])
+
+  const handleDeleteEntry = async(e)=>{
+    try {
+      await entryService.deleteEntry(entryId)
+      navigate('/AllEntries')
+    }
+    catch (error) {
+      console.log(`couldn't delete the Entry, error in submit: ${error}`);
+    }
+    }
+    
   return(
     <>
       <div className='container'>
       <Cover />
         <div className='contentWrap'>
           <div className='flexSpaceInBetween'>
-            <h3>in [place user gave in form]</h3>
-            <NavLink to={'/EntryForm/:id'}>
+            <h3>in {formData.location}</h3>
+            <NavLink to={`/EntryForm/${formData._id}`}>
                   <svg className="icons" viewBox="-6 -4.5 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" strokeWidth="0" />
                     <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" stroke="#CCCCCC" strokeWidth="0.144" />
@@ -22,33 +58,33 @@ const Entry = () =>{
                   </svg>
             </NavLink>
           </div>
-          <DetailsTitle title={'[Title of the entry]'}/>
+          <DetailsTitle title={formData.title}/>
           <div className="flex">
             <div className="maxWidth">
               <div className='flex'>
                 <div className='readOnlyRight flex'>
-                  <p className='bigP bold'>[today's date]</p>
+                  <p className='bigP bold'>{formData.date}</p>
                 </div>
                 <div className='readOnlyLeft flex'>
-                  <p className='bigP bold'>[#] expenses</p>
+                  <p className='bigP bold'>[#] {formData.expense}</p>
                 </div>
               </div>
               <div className='readOnly flex'>
-                <p className='bigP bold'>[google maps link]</p>
+                <p className='bigP bold'>{formData.mapLink}</p>
               </div>
               <div className='readOnlyBig'>
-                <p className='bigP bold'>[notes]</p>
+                <p className='bigP bold'>{formData.content}</p>
               </div>
               <div className='readOnlyBig marginBottom'>
                 <p className='bigP main bold'>Activities: </p>
-                <p className='bigP bold'>[Activities]</p>
+                <p className='bigP bold'>{formData.content}</p>
               </div>
             </div>
           </div>
         </div>
         <Gallery />
         <div className="marginLeftBig marginBottom">
-          <button id="cancel">Delete</button>
+          <button id="cancel" onClick={handleDeleteEntry}>Delete</button>
         </div>
         <Nav />
       </div>
