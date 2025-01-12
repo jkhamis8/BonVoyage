@@ -36,7 +36,7 @@ const AllJourneys = (props) =>{
               })}
             </div>
             :
-                <div className="flexColumn middle">
+                <div className="flexColumn bigMargin">
                   <h3 className='marginBottom'>No journeys yet!</h3>
                   <NavLink to={'/journeyForm'} className='button'>Add a journey</NavLink>
                 </div>

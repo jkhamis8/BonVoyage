@@ -34,12 +34,10 @@ const AllEntries = (props) =>{
               })}
             </div>
           :
-            <div className='fullHeight'>
-              <div className="flexColumn middle">
-                <h3>No entries yet!</h3>
+              <div className="flexColumn bigMargin">
+                <h3 className="marginBottom">No entries yet!</h3>
                 <NavLink to={'/EntryForm'} className='button'>Add an entry</NavLink>
               </div>
-            </div>
           }
         </div>
         <Nav />
