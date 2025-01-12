@@ -34,7 +34,7 @@ const AllEntries = (props) =>{
               })}
             </div>
           :
-            <div className='contentWrap fullHeight'>
+            <div className='fullHeight'>
               <div className="flexColumn middle">
                 <h3>No entries yet!</h3>
                 <NavLink to={'/EntryForm'} className='button'>Add an entry</NavLink>

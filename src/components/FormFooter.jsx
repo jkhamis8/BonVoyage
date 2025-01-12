@@ -4,7 +4,7 @@ import Cancel from "./Cancel"
 const FormFooter = () =>{
   return(
     <>
-      <div className="flexSpaceInBetween">
+      <div className="maxWidth flexSpaceInBetween">
         <Cancel location=''/>
         <Save />
       </div>

@@ -49,7 +49,7 @@ const SignUp = (props) =>{
             </div>
             <div className='input'>
               <label htmlFor="password">Password:</label>
-              <input type="text" id='password' placeholder='your password' value={formData.password} name='password' onChange={handleChange}/>
+              <input type="password" id='password' placeholder='your password' value={formData.password} name='password' onChange={handleChange}/>
             </div>
             <div className="input">
               <label htmlFor="confirmPassword">Confirm Password:</label>

@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 import Nav from '../components/Nav'
 import placeholder from '../assets/placeholder.webp'
+import calendar from '../assets/calendar.png'
 import ProfileSearch from "../components/ProfileSearch"
 import { useNavigate } from "react-router-dom"
 import * as journeyService from "./../services/journeyService"
@@ -28,9 +29,11 @@ const Home = (props) =>{
     <>
       <div className='container'>
         <ProfileSearch />
-        <div className='contentWrap'>
+        <div className='fullHeight'>
           <div className='flex marginBottom'>
-            <div id='calendarSub'>imagine this is a calendar</div>
+            <div id='calendarSub'>
+              <img className='image' src={calendar} alt="test" />
+            </div>
           </div>
           <div className='flex'>
               {journey?

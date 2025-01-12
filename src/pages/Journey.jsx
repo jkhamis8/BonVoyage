@@ -82,29 +82,38 @@ const Journey= (props) =>{
             <div className='maxWidth'>
               <div className='flex'>
                 <div className='readOnlyRight flex'>
-                  <p className='bigP bold'>From {formData.startDate}</p>
+                  <p className='bigP main bold marginRight'>From: </p>
+                  <p className='bigP bold'>{formData.startDate}</p>
                 </div>
                 <div className='readOnlyLeft flex'>
-                  <p className='bigP bold'>To {formData.endDate}</p>
+                  <p className='bigP main bold marginRight'>To: </p>
+                  <p className='bigP bold'>{formData.endDate}</p>
                 </div>
               </div>
               <div className='flex'>
                 <div className='readOnlyRight flex'>
-                  <p className='bigP bold'>{formData.budget} budget</p>
+                  <p className='bigP main bold marginRight'>Budget: </p>
+                  <p className='bigP bold'>{formData.budget}</p>
                 </div>
                 <div className='readOnlyLeft flex'>
-                  <p className='bigP bold'>{calcluate.expense} expense</p>
+                  <p className='bigP main bold marginRight'>Expense: </p>
+                  <p className='bigP bold'>{calcluate.expense}</p>
                 </div>
               </div>
               <div className='flex'>
                 <div className='readOnlyRightLong flex'>
-                  <a className='bigP bold' href="{formData.mapLink}">{formData.mapLink}</a>
+                  {formData.mapLink? 
+                    <a className='bigP bold' href="{formData.mapLink}">{formData.mapLink}</a>
+                    :
+                    <p className='bigP main bold marginRight'>add a Google maps link </p>}
                 </div>
                 <div className='readOnlyLeftShort flex'>
-                  <p className='bigP bold'>for {formData.people}</p>
+                  <p className='bigP main bold marginRight'>For: </p>
+                  <p className='bigP bold'>{formData.people}</p>
                 </div>
               </div>
               <div className='readOnly flex'>
+                <p className='bigP main bold marginRight'>Emergency number: </p>
                 <p className='bigP bold'>{formData.emergencyNumbers}</p>
               </div>
               <div className='readOnlyBig'>

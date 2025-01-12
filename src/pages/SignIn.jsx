@@ -45,7 +45,7 @@ const SignIn = (props) =>{
             </div>
             <div className='input'>
               <label htmlFor="password">Password:</label>
-              <input type="text" id='password' placeholder='your password' value={formData.password} name='password' onChange={handleChange}/>
+              <input type="password" id='password' placeholder='your password' value={formData.password} name='password' onChange={handleChange}/>
             </div>
             <button type='submit' id='signIn' className='marginTop'>Sign in</button>
             <a className='marginTop bold' href='/no'>forgot password?</a>

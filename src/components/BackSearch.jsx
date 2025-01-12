@@ -6,7 +6,7 @@ const BackSearch = (props)=>{
       <div className='flexSpaceInBetween' id="profileSearch">
         <NavLink to={`/journey/${props.journey._id}`}>
         <svg width="23" height="23" viewBox="0 0 20 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18.4761 1.52404L2.00012 18L18.4761 34.476" stroke="black" stroke-width="2.85714" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M18.4761 1.52404L2.00012 18L18.4761 34.476" stroke="black" strokeWidth="2.85714" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
         </NavLink>
         <svg className='icons' viewBox="-1.25 -1.25 27.50 27.50" fill="none" xmlns="http://www.w3.org/2000/svg">

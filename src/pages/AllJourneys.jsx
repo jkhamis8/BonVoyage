@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import Nav from '../components/Nav'
 import ProfileSearch from '../components/ProfileSearch'
-import Gallery from "../components/Gallery"
 import JourneyBox from "../components/JourneyBox"
 import * as journeyService from '../services/journeyService'
 import { useState,useEffect } from "react"
@@ -27,7 +26,6 @@ const AllJourneys = (props) =>{
       <div className='container'>
         <div className='fullHeight'>
           <ProfileSearch />
-          <Gallery />
           <div className='flex'>
             {journeys.length?
             <div className='grid maxWidth'>
@@ -38,12 +36,10 @@ const AllJourneys = (props) =>{
               })}
             </div>
             :
-              <div className='fullHeight'>
                 <div className="flexColumn middle">
-                  <h3>No journeys yet!</h3>
+                  <h3 className='marginBottom'>No journeys yet!</h3>
                   <NavLink to={'/journeyForm'} className='button'>Add a journey</NavLink>
                 </div>
-              </div>
             }
 
           </div>

@@ -93,8 +93,6 @@ https://www.sitepoint.com/css-grid-center-element/#:~:text=CSS%20Grid%20provides
 #signOut{
   width: 100%;
   max-width: 200px;
-  position: absolute;
-  bottom: 70px;
 }
 
 #save{

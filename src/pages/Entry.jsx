@@ -82,7 +82,6 @@ const Entry= () =>{
             </div>
           </div>
         </div>
-        <Gallery />
         <div className="marginLeftBig marginBottom">
           <button id="cancel" onClick={handleDeleteEntry}>Delete</button>
         </div>

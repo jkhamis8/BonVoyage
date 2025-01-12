@@ -78,7 +78,7 @@ const EntryForm = (props) =>{
   return(
     <>
       <div className='container'>
-        <div className='fullHeight'>
+        <div className='fullHeight margin'>
           <form onSubmit={handleSubmit} className='flex'>
             <div id="addJourney">
               <div className='headerInput flexSpaceInBetween'>

@@ -43,6 +43,10 @@ body{
   margin-left: 15px;
 }
 
+.margin{
+  margin: 0 16px;
+}
+
 /* flex */
 .flex, svg{
   display: flex;
