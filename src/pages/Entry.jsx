@@ -44,8 +44,8 @@ const Entry= () =>{
   return(
     <>
       <div className='container'>
-      <Cover />
-        <div className='fullHeight margin'>
+      <Cover image={formData.images}/>
+      <div className='fullHeight margin'>
           <div className='flexSpaceInBetween'>
             <h3>in {formData.location}</h3>
             <NavLink to={`/EntryForm/${formData._id}`}>
