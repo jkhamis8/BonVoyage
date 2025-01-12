@@ -10,7 +10,8 @@ const initialFormData = {
   expense: 0,
   content: '',
   images: null,
-  map_link: '' 
+  map_link: '',
+  rate:0
 }
 
 const EntryForm = (props) =>{
