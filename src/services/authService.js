@@ -36,9 +36,11 @@ const signin = async (user) => {
 
       return user
     }
+
     if (json.err) {
       throw new Error(json.err)
     }
+    return json
   } catch (err) {
     console.log(err)
     throw err

@@ -10,6 +10,7 @@ const initialFormData = {
 
 const SignIn = (props) =>{
   const [formData, setFormData] = useState(initialFormData)
+  const [message, setMessage] = useState('')
   const navigate = useNavigate()
 
   const handleChange = (e) =>{
@@ -20,8 +21,14 @@ const SignIn = (props) =>{
     e.preventDefault();
     try {
       const user = await authService.signin(formData)
+      console.log(user);
+      if(user.error){
+        setMessage(user.error)
+      }else{
       props.setUser(user);
       navigate('/')
+    }
+
     } catch (error) {
       console.log(`error in singIn handleSubmit: ${error}`);
     }
@@ -41,13 +48,15 @@ const SignIn = (props) =>{
           <form onSubmit={handleSubmit} className='flex'>
             <div className='input'>
               <label htmlFor="username">Username:</label>
-              <input type="text" id='username' placeholder='your username' value={formData.username} name='username' onChange={handleChange}/>
+              <input required type="text" id='username' placeholder='your username' value={formData.username} name='username' onChange={handleChange}/>
             </div>
             <div className='input'>
               <label htmlFor="password">Password:</label>
-              <input type="password" id='password' placeholder='your password' value={formData.password} name='password' onChange={handleChange}/>
+              <input required type="password" id='password' placeholder='your password' value={formData.password} name='password' onChange={handleChange}/>
             </div>
             <button type='submit' id='signIn' className='marginTop'>Sign in</button>
+            <p className='marginTop message'>{message}</p>
+
             <a className='marginTop bold' href='/no'>forgot password?</a>
           </form>
         </div>

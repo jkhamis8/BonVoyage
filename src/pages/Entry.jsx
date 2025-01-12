@@ -73,7 +73,7 @@ const Entry= () =>{
               </div>
               <div className='readOnly flex'>
                 {formData.map_link? 
-                  <a className='bigP bold' href="{formData.map_link}">{formData.map_link}</a>
+                  <a className='bigP bold' href={formData.map_link}>Click for Map Link</a>
                   :
                   <p className='bigP main bold marginRight'>add a Google maps link </p>}
               </div>

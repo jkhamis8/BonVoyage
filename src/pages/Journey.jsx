@@ -103,7 +103,7 @@ const Journey= (props) =>{
               <div className='flex'>
                 <div className='readOnlyRightLong flex'>
                   {formData.mapLink? 
-                    <a className='bigP bold' href="{formData.mapLink}">{formData.mapLink}</a>
+                    <a className='bigP bold link' href={formData.mapLink}>Click for Map Link</a>
                     :
                     <p className='bigP main bold marginRight'>add a Google maps link </p>}
                 </div>

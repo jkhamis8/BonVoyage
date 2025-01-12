@@ -42,7 +42,11 @@ const Home = (props) =>{
               <div className='objectFooter'>
                 <p className='bigP bold'>Get excited! your journey is planned for {journey.destination}</p>
               </div>
+              {journey.coverImage?
+              <img className='image' src={journey.coverImage} alt="test" />
+              :
               <img className='image' src={placeholder} alt="test" />
+              }
             </div>
               :
             <p className="bigP bold">No journeys in the upcoming three months</p>

@@ -131,3 +131,11 @@
 .bigMargin{
   margin-top: 40vh;
 }
+
+.message{
+  color:firebrick;
+}
+
+.clickable{
+  cursor: pointer;
+}
