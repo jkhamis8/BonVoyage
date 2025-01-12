@@ -45,7 +45,7 @@ const Entry= () =>{
     <>
       <div className='container'>
       <Cover />
-        <div className='fullHeight'>
+        <div className='fullHeight margin'>
           <div className='flexSpaceInBetween'>
             <h3>in {formData.location}</h3>
             <NavLink to={`/EntryForm/${formData._id}`}>
@@ -63,16 +63,22 @@ const Entry= () =>{
             <div className="maxWidth">
               <div className='flex'>
                 <div className='readOnlyRight flex'>
+                  <p className='bigP main bold marginRight'>Date: </p>
                   <p className='bigP bold'>{formData.date}</p>
                 </div>
                 <div className='readOnlyLeft flex'>
-                  <p className='bigP bold'>[#] {formData.expense}</p>
+                  <p className='bigP main bold marginRight'>Expenses: </p>
+                  <p className='bigP bold'>{formData.expense}</p>
                 </div>
               </div>
               <div className='readOnly flex'>
-                <p className='bigP bold'>{formData.mapLink}</p>
+                {formData.map_link? 
+                  <a className='bigP bold' href="{formData.map_link}">{formData.map_link}</a>
+                  :
+                  <p className='bigP main bold marginRight'>add a Google maps link </p>}
               </div>
               <div className='readOnlyBig'>
+              <p className='bigP main bold marginRight'>Notes: </p>
                 <p className='bigP bold'>{formData.content}</p>
               </div>
               <div className='readOnlyBig marginBottom'>
@@ -81,9 +87,9 @@ const Entry= () =>{
               </div>
             </div>
           </div>
-        </div>
-        <div className="marginLeftBig marginBottom">
-          <button id="cancel" onClick={handleDeleteEntry}>Delete</button>
+          <div className="marginLeftBig marginBottom">
+            <button id="cancel" onClick={handleDeleteEntry}>Delete</button>
+          </div>
         </div>
         <Nav />
       </div>
